@@ -1,0 +1,61 @@
+{
+  "name": "mod-16.5-webpack-conf-env",
+  "version": "0.5.0",
+  "description": "Webpack configuration - per environment",
+  "main": "src/index.js",
+  "scripts": {
+    "init": "npm init && npm install && run-s init:*",
+    "init:dir-build": "shx mkdir -p build/css build/images build/js build/vendor",
+    "init:dir-src": "shx mkdir -p src/components src/containers src/images src/vendor",
+    "init:files-build": "shx touch build/index.html",
+    "init:files-repo": "shx touch README.md",
+    "init:files-src": "shx touch src/index.html src/index.js src/main.css",
+    "init:gitignore": "curl https://www.gitignore.io/api/node%2Creactnative > .gitignore",
+    "lint": "run-s lint:*",
+    "lint:css": "stylelint \"src/*.css src/**/*.css !**/vendor/**\"",
+    "lint:html": "html5v src/index.html",
+    "lint:js": "eslint --ext .js src/",
+    "build": "npm test && shx rm -rf build && run-s build:* && webpack --env production",
+    "build:html": "shx cp src/index.html build/index.html",
+    "start": "webpack --env development",
+    "test": "npm run lint"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/mnap00/mod-16.5-webpack-conf-env.git"
+  },
+  "keywords": [
+    "webpack",
+    "node",
+    "react"
+  ],
+  "author": "mnap00",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mnap00/mod-16.5-webpack-conf-env/issues"
+  },
+  "homepage": "https://github.com/mnap00/mod-16.5-webpack-conf-env#readme",
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-eslint": "^8.2.3",
+    "babel-loader": "^7.1.4",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-react": "^6.24.1",
+    "css-loader": "^0.28.11",
+    "eslint": "^4.19.1",
+    "eslint-plugin-flowtype": "^2.46.3",
+    "eslint-plugin-react": "^7.7.0",
+    "html5-validator": "^1.2.1",
+    "npm-run-all": "^4.1.2",
+    "react": "^16.3.2",
+    "react-dom": "^16.3.2",
+    "shx": "^0.2.2",
+    "style-loader": "^0.21.0",
+    "stylelint": "^9.2.0",
+    "webpack": "^4.6.0",
+    "webpack-cli": "^2.0.14"
+  },
+  "dependencies": {
+    "uuid": "^3.2.1"
+  }
+}
